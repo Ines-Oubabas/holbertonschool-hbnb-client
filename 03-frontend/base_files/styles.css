@@ -18,6 +18,7 @@ header {
     padding: 10px 0;
     text-align: left;
     padding-left: 20px;
+    position: relative; /* Pour le positionnement absolu du bouton de connexion */
 }
 
 .logo {
@@ -85,7 +86,7 @@ main {
     padding: 10px 0;
 }
 
-.details-button, .add-review {
+.details-button, .add-review, .login-form button, .add-review-form button {
     background: #f4b400;
     color: #fff;
     border: none;
@@ -128,6 +129,12 @@ main {
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
+}
+
+/* Style pour les messages d'erreur dans le formulaire */
+#error-message {
+    color: red;
+    margin-top: 10px;
 }
 
 @media (min-width: 768px) {
