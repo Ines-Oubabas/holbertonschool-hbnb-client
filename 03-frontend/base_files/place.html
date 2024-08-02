@@ -9,10 +9,11 @@
 <body>
     <header>
         <img src="logo.png" class="logo" alt="Application Logo">
-        <a href="login.html" class="login-button">Login</a>
+        <a href="login.html" id="login-link" class="login-button">Login</a>
     </header>
     <main>
-        <section class="place-details">
+        <section id="place-details" class="place-details">
+            <!-- Contenu dynamique pour les détails du lieu -->
             <img src="place1.jpg" class="place-image-large" alt="Place Image">
             <div class="place-info">
                 <h1>Place Name</h1>
@@ -22,19 +23,29 @@
                 <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <p>Amenities: WiFi, Parking, Breakfast</p>
             </div>
-            <section class="reviews">
-                <div class="review-card">
-                    <p>User: John Doe</p>
-                    <p>Rating: 5</p>
-                    <p>Comment: Great place!</p>
-                </div>
-                <!-- Ajoutez d'autres cartes de commentaire ici -->
-            </section>
-            <button class="add-review">Add Review</button>
+        </section>
+        <section id="reviews" class="reviews">
+            <!-- Contenu dynamique pour les avis -->
+            <div class="review-card">
+                <p>User: John Doe</p>
+                <p>Rating: 5</p>
+                <p>Comment: Great place!</p>
+            </div>
+            <!-- Ajoutez d'autres cartes de commentaire ici -->
+        </section>
+        <section id="add-review" class="add-review-form">
+            <form id="review-form">
+                <h2>Add Review</h2>
+                <label for="review">Review:</label>
+                <textarea id="review" name="review" required></textarea>
+                <button type="submit">Submit</button>
+                <div id="error-message" style="color: red; margin-top: 10px;"></div>
+            </form>
         </section>
     </main>
     <footer>
-        <p>All rights reserved.</p>
+        <p>All rights reserved. &copy; 2024</p>
     </footer>
+    <script src="../scripts.js"></script> <!-- Chemin mis à jour -->
 </body>
 </html>
