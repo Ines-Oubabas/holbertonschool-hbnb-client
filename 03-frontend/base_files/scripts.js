@@ -69,11 +69,20 @@ async function loginUser(email, password) {
           document.cookie = `token=${data.access_token}; path=/`;
           window.location.href = 'index.html'; // Redirige l'utilisateur vers la page principale
       } else {
-          alert('Échec de la connexion : Identifiants incorrects');
+          const errorMessage = await response.json();
+          displayErrorMessage(errorMessage.message || 'Échec de la connexion : Identifiants incorrects');
       }
   } catch (error) {
       console.error('Erreur lors de la tentative de connexion :', error);
-      alert('Une erreur est survenue. Veuillez réessayer.');
+      displayErrorMessage('Une erreur est survenue. Veuillez réessayer.');
+  }
+}
+
+// Fonction pour afficher les messages d'erreur
+function displayErrorMessage(message) {
+  const errorMessageDiv = document.getElementById('error-message');
+  if (errorMessageDiv) {
+      errorMessageDiv.innerText = message;
   }
 }
 
@@ -124,6 +133,6 @@ function displayPlaces(places) {
 
 // Fonction de navigation pour voir les détails d'un lieu (à implémenter)
 function viewDetails(placeId) {
-  // Code pour naviguer vers la page de détails du lieu ou afficher les détails
-  console.log(`Voir les détails pour le lieu avec ID: ${placeId}`);
+  // Redirige vers la page de détails du lieu avec l'ID du lieu
+  window.location.href = `place.html?id=${placeId}`;
 }
