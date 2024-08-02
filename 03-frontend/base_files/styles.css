@@ -1,17 +1,23 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset de base */
+* {
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #000000;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: #f8f9fa;
+    background: #f7a100;
+    color: #fff;
+    padding: 10px 0;
+    text-align: left;
+    padding-left: 20px;
 }
 
 .logo {
@@ -19,60 +25,119 @@ header {
 }
 
 .login-button {
+    color: #fff;
     text-decoration: none;
-    color: #007bff;
-}
-
-main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-#login-form {
-    max-width: 400px;
-    width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-}
-
-#login-form h2 {
-    margin-top: 0;
-}
-
-label {
-    margin-top: 10px;
-    display: block;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0 15px;
-    border: 1px solid #ddd;
+    background: #251b00;
+    padding: 10px 20px;
     border-radius: 5px;
-}
-
-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
+    position: absolute;
+    right: 20px;
+    top: 15px;
 }
 
 footer {
-    background-color: #f8f9fa;
-    padding: 10px;
+    background: #333;
+    color: #fff;
     text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+main {
+    padding: 20px;
+    margin-bottom: 60px; /* Pour éviter que le footer ne cache le contenu */
+}
+
+.places-list, .reviews {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.place-card, .review-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.place-image {
+    width: 100%; /* Ajuste la largeur de l'image à 100% de son conteneur */
+    height: auto; /* Garde le ratio d'aspect de l'image */
+    max-width: 300px; /* Taille maximale pour les images des cartes */
+    border-radius: 10px; /* Coins arrondis */
+}
+
+.place-image-large {
+    width: 100%; /* Ajuste la largeur de l'image à 100% de son conteneur */
+    height: auto; /* Garde le ratio d'aspect de l'image */
+    max-width: 600px; /* Taille maximale pour les grandes images */
+    border-radius: 10px; /* Coins arrondis */
+}
+
+.place-info {
+    padding: 10px 0;
+}
+
+.details-button, .add-review {
+    background: #f4b400;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+}
+
+.login-form, .add-review-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.login-form label, .add-review-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.login-form input, .add-review-form input, .add-review-form select, .add-review-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.login-form button, .add-review-form button {
+    background: #f4b400;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .place-card, .review-card {
+        width: 45%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .place-card, .review-card {
+        width: 30%;
+    }
 }
