@@ -3,37 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css"> <!-- Chemin mis à jour -->
     <title>Place Details</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <img src="logo.png" class="logo" alt="Logo">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="login.html" class="login-button">Login</a>
-        </nav>
+        <img src="logo.png" class="logo" alt="Application Logo">
+        <a href="login.html" class="login-button">Login</a>
     </header>
-    
     <main>
-        <div id="place-details">
-            <!-- Place details will be dynamically inserted here -->
-        </div>
-        
-        <div id="add-review">
-            <h2>Add Review</h2>
-            <form id="review-form">
-                <label for="review">Review:</label>
-                <textarea id="review" name="review" required></textarea>
-                <button type="submit">Submit Review</button>
-            </form>
-        </div>
+        <section class="place-details">
+            <img src="place1.jpg" class="place-image-large" alt="Place Image">
+            <div class="place-info">
+                <h1>Place Name</h1>
+                <p>Host: Host Name</p>
+                <p>Price: $100 per night</p>
+                <p>Location: City, Country</p>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Amenities: WiFi, Parking, Breakfast</p>
+            </div>
+            <section class="reviews">
+                <div class="review-card">
+                    <p>User: John Doe</p>
+                    <p>Rating: 5</p>
+                    <p>Comment: Great place!</p>
+                </div>
+                <!-- Ajoutez d'autres cartes de commentaire ici -->
+            </section>
+            <button class="add-review">Add Review</button>
+        </section>
     </main>
-    
     <footer>
-        <p>&copy; 2024 All rights reserved.</p>
+        <p>All rights reserved.</p>
     </footer>
-    
-    <script src="scripts.js"></script>
 </body>
 </html>
