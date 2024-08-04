@@ -1,150 +1,463 @@
-/* Reset de base */
+:root {
+    --primary-color: #f5a19b;  /* Couleur principale */
+    --secondary-color: #f8c7c3;  /* Couleur secondaire */
+    --background-color: #f8d5d5;  /* Couleur de fond */
+    --text-color: #383838;  /* Couleur du texte */
+    --button-background-color: #ffffff00;  /* Couleur de fond des boutons */
+    --button-hover-background-color: #f8b7b2fd;  /* Couleur de fond des boutons au survol */
+    --footer-background-color: #f5a19b;  /* Couleur de fond du pied de page */
+    --header-color: #383838;  /* Couleur du texte dans l'en-tête */
+    --button-text-color: #f5a19b;  /* Couleur du texte dans les boutons */
+}
+
+/* Global Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #000000;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
+/* Header and Navigation */
 header {
-    background: #f7a100;
-    color: #fff;
-    padding: 10px 0;
-    text-align: left;
-    padding-left: 20px;
-    position: relative; /* Pour le positionnement absolu du bouton de connexion */
+    background-color: var(--primary-color);
+    color: var(--header-color);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
 }
 
-.logo {
-    height: 50px;
+nav {
+    margin-left: auto;
 }
 
-.login-button {
-    color: #fff;
+nav a {
+    color: var(--header-color);
     text-decoration: none;
-    background: #251b00;
-    padding: 10px 20px;
+    margin-left: 2rem;
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 20px;
+}
+
+.login-button, .home-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    font-size: 16px;
+    color: var(--button-text-color);
+    background-color: var(--button-background-color);
+    border: none;
     border-radius: 5px;
-    position: absolute;
-    right: 20px;
-    top: 15px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.login-button i, .home-button i {
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+.login-button:hover, .home-button:hover {
+    background-color: var(--button-hover-background-color);
+    transform: scale(1.05);
+}
+
+.login-button:focus, .home-button:focus {
+    outline: none;
+}
+
+/* Main and Footer */
+main {
+    padding: 2rem;
+    flex: 1;
+    background-color: var(--background-color);
 }
 
 footer {
-    background: #333;
-    color: #fff;
+    background-color: var(--footer-background-color);
+    color: var(--header-color);
+    padding: 1rem;
     text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
 }
 
-main {
-    padding: 20px;
-    margin-bottom: 60px; /* Pour éviter que le footer ne cache le contenu */
+/* Section Title and Centered Content */
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
 }
 
-.places-list, .reviews {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+.centered-content {
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Places List */
+#places-list {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
     justify-content: center;
 }
 
-.place-card, .review-card {
-    background: #fff;
+/* Place Card */
+.place-card {
+    position: relative;
+    padding: 0;
     border: 1px solid #ddd;
     border-radius: 10px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Adjust image size */
+.place-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+    display: block;
+}
+
+/* Place Card Info */
+.place-card .info {
     padding: 10px;
-    margin: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 300px;
 }
 
-.place-image {
-    width: 100%; /* Ajuste la largeur de l'image à 100% de son conteneur */
-    height: auto; /* Garde le ratio d'aspect de l'image */
-    max-width: 300px; /* Taille maximale pour les images des cartes */
-    border-radius: 10px; /* Coins arrondis */
+.place-card h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
 }
 
-.place-image-large {
-    width: 100%; /* Ajuste la largeur de l'image à 100% de son conteneur */
-    height: auto; /* Garde le ratio d'aspect de l'image */
-    max-width: 600px; /* Taille maximale pour les grandes images */
-    border-radius: 10px; /* Coins arrondis */
+.place-card p {
+    font-size: 0.9rem;
+    color: #777;
 }
 
-.place-info {
-    padding: 10px 0;
+.place-card .details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.details-button, .add-review, .login-form button, .add-review-form button {
-    background: #f4b400;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
+.place-card .price {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.place-card .rating {
+    display: flex;
+    align-items: center;
+}
+
+.place-card .rating span {
+    margin-left: 5px;
+    color: var(--primary-color);
+}
+
+.place-card .actions {
+    margin-top: auto;
+    display: flex;
+    justify-content: center; /* Center actions for better alignment */
+}
+
+/* Details Button */
+.details-button {
+    background-color: var(--secondary-color);
+    color: var(--header-color);
+    border: 2px solid transparent;
     cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
     text-align: center;
-    display: block;
-    width: 100%;
-    text-decoration: none;
+    transition: background-color 0.3s, border-color 0.3s;
+    flex: 1; /* Make the button take full width of its container */
 }
 
-.login-form, .add-review-form {
-    max-width: 400px;
-    margin: 0 auto;
+/* Adjust the size of the button if only one place card is visible */
+.place-card:only-child .details-button {
+    padding: 0.5rem 1rem; /* Smaller padding if only one card */
+}
+
+.details-button:hover {
+    background-color: var(--button-hover-background-color);
+    border-color: var(--secondary-color);
+}
+
+/* Favorite Icon */
+.place-card .favorite {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.place-card .favorite img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Review Styles */
+.place-details-page #reviews {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 2rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.review-card {
     background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.login-form label, .add-review-form label {
-    display: block;
-    margin: 10px 0 5px;
-}
-
-.login-form input, .add-review-form input, .add-review-form select, .add-review-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 1rem;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
 }
 
-.login-form button, .add-review-form button {
-    background: #f4b400;
-    color: #fff;
+.review-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.review-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.review-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.user-name, .rating {
+    margin-bottom: 0.5rem;
+}
+
+.comment {
+    margin-top: 1rem;
+    text-align: right;
+}
+
+/* Review Form */
+#add-review {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.rating {
+    display: flex;
+    gap: 0.1rem;
+}
+
+.star {
+    width: 1rem;
+    height: 1rem;
+    background: url('star-empty.svg') no-repeat center center;
+    background-size: contain;
+}
+
+.star.filled {
+    background: url('star-filled.svg') no-repeat center center;
+    background-size: contain;
+}
+
+#add-review h2 {
+    font-size: 1.50rem;
+    margin-bottom: 1.5rem;
+}
+
+#review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#review-form label {
+    font-weight: bold;
+}
+
+#review-form textarea,
+#review-form select {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#review-form button {
+    background-color: var(--secondary-color);
+    color: var(--header-color);
     border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+#review-form button:hover {
+    background-color: var(--button-hover-background-color);
+}
+
+/* Login Form */
+#login-form {
+    margin: 20px auto;
+    width: 100%;
+    max-width: 550px;
+    padding: 20px;
+    background: var(--primary-color);
+    border: 3px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#login-form h2 {
+    margin-top: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login-form label {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+#login-form input {
+    width: 100%;
+    max-width: 400px;
     padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#login-form button {
+    background-color: var(--secondary-color);
+    color: var(--header-color);
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+/* Add Review Form */
+#addreview-form {
+    margin: 20px auto;
+    width: 100%;
+    max-width: 550px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#addreview-form h2 {
+    margin-top: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.addreview-form-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#addreview-form input,
+#addreview-form textarea,
+#addreview-form select {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#addreview-form button {
+    background-color: var(--secondary-color);
+    color: var(--header-color);
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+
+/* Logout Button */
+.logout-button {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #ff4b5d00;
+    color: var(--header-color);
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
+    display: none;
 }
 
-/* Style pour les messages d'erreur dans le formulaire */
-#error-message {
-    color: red;
-    margin-top: 10px;
-}
-
-@media (min-width: 768px) {
-    .place-card, .review-card {
-        width: 45%;
-    }
-}
-
-@media (min-width: 1024px) {
-    .place-card, .review-card {
-        width: 30%;
-    }
+.logout-button:hover {
+    background-color: var(--button-hover-background-color);
 }
