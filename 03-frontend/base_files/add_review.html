@@ -3,34 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles.css"> <!-- Chemin mis à jour -->
+    <link rel="stylesheet" href="styles.css"> <!-- Chemin mis à jour -->
     <title>Add Review</title>
 </head>
 <body>
     <header>
         <img src="logo.png" class="logo" alt="Application Logo">
-        <a href="login.html" id="login-link" class="login-button">Login</a>
+        <a href="index.html" class="login-button">Home</a>
     </header>
     <main>
-        <form id="review-form" class="add-review-form">
-            <h2>Add Review</h2>
-            <label for="rating">Rating:</label>
-            <select id="rating" name="rating" required>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <label for="comment">Comment:</label>
-            <textarea id="comment" name="comment" required></textarea>
+        <h1>Add Review</h1>
+        <form id="review-form">
+            <label for="place-id">Place ID:</label>
+            <input type="text" id="place-id" required>
+            <label for="rating">Rating (1-5):</label>
+            <input type="number" id="rating" min="1" max="5" required>
+            <label for="review">Review:</label>
+            <textarea id="review" required></textarea>
             <button type="submit">Submit Review</button>
-            <div id="error-message" style="color: red; margin-top: 10px;"></div>
         </form>
     </main>
     <footer>
-        <p>All rights reserved. &copy; 2024</p>
+        <p>© 2024 HBnB. All rights reserved.</p>
     </footer>
-    <script src="../scripts.js"></script> <!-- Chemin mis à jour -->
+    <script src="scripts.js"></script> <!-- Chemin mis à jour -->
 </body>
 </html>
